@@ -3,8 +3,7 @@ const dead = document.getElementById("dead");
 const lost = document.getElementById("lost");
 
 for (let i = 0; i < holes.length; i++) {
-    const hole = holes[i];
-    hole.addEventListener('click', clickHole);
+    holes[i].addEventListener('click', clickHole);
 }
 
 function zeroResult () {
