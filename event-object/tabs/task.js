@@ -11,6 +11,6 @@ function clickTab() {
     tabs[active].classList.remove("tab_active");
     tabsContent[active].classList.remove("tab__content_active");
     active = tabs.indexOf(this);
-    tabs[active].classList.add("tab_active");
+    this.classList.add("tab_active");
     tabsContent[active].classList.add("tab__content_active");
 }
