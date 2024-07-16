@@ -11,11 +11,12 @@ const dictProperty = {
 const dictBookProperty = {"font-size": "book_fs-", "color": "book_color-", "background": "book_bg-"};
 
 
-function change() {
+function change(event) {
     event.preventDefault();
     const el =  event.target;
     if (el.nodeName === "A") {
-        prop = dictProperty[dictKey = el.closest("div").classList.value.split("_").at(-1)];
+        dictKey = el.closest("div").classList.value.split("_").at(-1);
+        prop = dictProperty[dictKey];
         prop[1].classList.remove(prop[0] + "active");
         prop[1] = el;
         prop[1].classList.add(prop[0] + "active");
