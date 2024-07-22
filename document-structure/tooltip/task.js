@@ -8,13 +8,17 @@ tooltip.forEach((element) => {
     element.after(newHint);
     element.addEventListener("click", (event) => {
         event.preventDefault();
+        if (activeHint === event.target.nextSibling) {
+            activeHint.classList.toggle("tooltip_active");
+            return;
+        }
         if (activeHint) activeHint.classList.remove("tooltip_active");
         hint = event.target.nextSibling;
         positionLeft = element.getBoundingClientRect().left;
         hint.style.cssText = `position: absolute; left: ${positionLeft}px`;
-        hint.classList.add("tooltip_active");
         // если position оставить фиксед как в css,
-        // то при прокрутке окна подсказка висит в воздухе
-        activeHint = event.target.nextSibling;
+        // то при прокрутке окна, подсказка висит в воздухе
+        hint.classList.add("tooltip_active");
+        activeHint = hint;
     })
 });
